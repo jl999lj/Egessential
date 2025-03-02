@@ -1,0 +1,162 @@
+.Center{
+   display: block;/* elementin sillest si nje element bllok ne faqen e internetit.*/
+  margin-left: auto;/* E vendos elementin horizontalisht brenda permbjatesit prind*/
+  margin-right: auto;
+}
+.dropbtn {
+  background-color: #ffffff;/*Ngjyra e sfondit te butonit */
+  color: rgb(0, 0, 0);/*Ngjyra e tekstit */
+  padding: 16px;/* Jep hapesire rreth tekstit te butonit*/
+  font-size: 16px;/* Madhesia e tekstit */
+  border: none;/*Hiqet bordura për një pamje me te paster*/
+}
+
+.dropdown {
+  position: relative;/* Lejon qe elementet e brendshme te pozicionohen relativisht ndaj tij.*/
+  display: inline-block;/*E ben elementin te qendroje ne te njejten linje me elementet e tjere, por ende si një bllok.*/
+}
+
+.dropdown-content {
+  display: none;/*Fillimisht fsheh permbajtjen e dropdown-it.*/
+  position: absolute;/*Pozicionohet në raport me dropdown*/
+  background-color: #ffffff;
+  min-width: 160px;/*Siguron qe kutia te kete gjeresi minimale*/
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);/* Shton një hije per një efekt të lehte tredimensional.*/
+  z-index: 1;/*Siguron qe te shfaqet mbi elementet e tjera*/
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #d6d4d4;}/*kur mausi ndodhet siper merr kete ngjyre*/
+
+.dropdown:hover .dropdown-content {display: block;}/*kur mausi ndodhet siper i tregon elementet bllok*/
+
+.dropdown:hover .dropbtn {background-color: #9c9c9c;}/*kur mausi ndodhet siper butonave,butonat marrin kete ngjyre*/
+*{
+	padding:0;
+	margin:0;
+	box-sizing:border-box;
+ }
+ footer{
+	background-color: black;
+ }
+.footerContainer{
+	 width: 100%;
+	 padding: 70px 30px 20px;
+ }
+ .socialIcons{
+	 display:flex;
+	 justify-content:center;/*vendos ikonat horizontalisht*/
+ }
+ .socialIcons a{
+	 text-decoration: none;
+	 padding:10px;
+	 background-color:white;
+	 margin:10px;
+	 border-radius: 100%;
+ }
+ .socialIcons a i{
+	 font-size: 2 em;
+	 color: black;
+	 opacity:0.9;/*ul transparencen*/
+ }
+ .socialIcons a:hover{
+	 background-color: #111;
+	 transition:0.5s;
+ }
+ .socialIcons a:hover i{
+	 color: white;
+	 transition:0.5s;
+ }
+ 
+ /*.footerNav{
+	 margin: 30px 0;
+ }
+ .footerNav ul{
+	 display:flex;
+	 justify-content:center;
+	 list-style-type:nonedisc;
+ }
+.footerNav ul li a{
+     color: white;
+	 margin:20px;
+	 text-decoration: none;
+	 font-size: 1em;
+	 opacity:0.7;
+	 transition:0.5s;
+}
+.footerNav ul li a: hover{
+	opacity:1;
+}*/
+.footerBottom{
+	background-color:#000;
+	padding:20px;
+	text-align:center;
+}
+.footerBottom p{
+	color:white;
+}	
+.designer{
+	opacity:0.7;
+	text-transform: uppercase;
+	letter-spacing:1px;/*largesia e shkronjave nga njera-tjetra*/
+	font-weight:400;
+	margin:0px 5px;
+}
+@media(max-width: 700px){
+	.footerNav{
+		flex-direction: column;/*percakton drejtimin e elementeve*/
+	}
+	.footerNav ul li{
+		width:100%;
+		text-align:center;
+		margin:10px;
+	}
+}
+.newsletter{
+	background-size: cover;
+	padding: 100px 40 px;
+	text-align: center;
+	color: white;
+}
+.email-box{
+	height: 40px;
+	display: flex;
+	justify-content: center;
+}
+.email-box i{
+	background: black;
+	width: 40px;
+	line-height: 40px;
+}
+.tbox,.btn{
+	border: none;
+	outline: none;
+	
+}
+.tbox{
+	width: 0px;
+	transition: 0.6s;
+	
+}
+.email-box:hover > .tbox, .tbox:focus{
+	/*.email-box:hover > .tbox çdo element fëmijë me klasen .tbox brenda .email-box do te marri karakteristikat e meposhtme kur mausi ndodhet mbi te.
+	.tbox:focus vepron kur elementit me klasën .tbox i vendoset fokusi */
+	width: 260px;
+	padding:0 10px;
+}
+.btn{
+	background: black;
+	color: white;
+	padding: 0 10px;
+	text-transform: uppercase;
+	cursor: pointer;
+	
+	
+}
+

@@ -1,0 +1,157 @@
+<!doctype HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+	<link rel="icon" type="image/x-icon" href="Letter-EG-GE-Monogram-Logo.ico">
+	<script defer src="shporta.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-image: url(faqepar.jpg);
+            background-attachment: scroll;
+            background-size: cover;
+        }
+        .cart {
+            width: 50%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .cart h2 {
+            text-align: center;
+        }
+        .cart-item {
+            display: flex;
+			align-items:center;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .cart-item button {
+            background: black;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+			border-radius: 5px;
+        }
+        .total {
+            text-align: right;
+            font-size: 1.2em;
+            padding: 10px;
+        }
+		.total input{
+		    background: black;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+			border-radius: 5px; 
+		}
+		 .quantity button {
+            background: black;
+            color: white;
+            border: none;
+            padding: 5px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+		   .quantity input {
+            width: 30px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="cart">
+        <h2>Shopping Cart</h2>
+        <div class="cart-item">
+		    <img src="skincare2.jpg" width="50px" height="50px">
+            <span>Rhode,Barrier Restore Cream</span>
+            <span>3500ALL</span>
+			<div class="quantity">
+                <button onclick="ul_sasine('qty0')">-</button>
+                <input type="text" id="qty0" value="1" readonly>
+                <button onclick="rrit_sasine('qty0')">+</button>
+            </div>
+            <button>Remove</button>
+        </div>
+        <div class="cart-item">
+		 <img src="hair5.webp" width="50px" height="50px">
+            <span>Kerastase Paris, Shampoo</span>
+            <span>2400ALL</span>
+			<div class="quantity">
+                <button onclick="ul_sasine('qty1')">-</button>
+                <input type="text" id="qty1" value="1" readonly>
+                <button onclick="rrit_sasine('qty1')">+</button>
+            </div>
+            <button>Remove</button>
+        </div>
+		<div class="cart-item">
+		 <img src="hair2.webp" width="50px" height="50px" >
+            <span>Gisou,Honey Infused Hair Oil</span>
+            <span>5500ALL</span>
+			<div class="quantity">
+                <button onclick="ul_sasine('qty2')">-</button>
+                <input type="text" id="qty2" value="1" readonly>
+                <button onclick="rrit_sasine('qty2')">+</button>
+            </div>
+            <button>Remove</button>
+        </div>
+		<div class="cart-item">
+		 <img src="skincare4.jpg" width="50px" height="50px" >
+            <span>Summer Fridays, Hydration</span>
+            <span>3000ALL</span>
+			<div class="quantity">
+                <button onclick="ul_sasine('qty3')">-</button>
+                <input type="text" id="qty3" value="1" readonly>
+                <button onclick="rrit_sasine('qty3')">+</button>
+            </div>
+            <button>Remove</button>
+        </div>
+		<div class="cart-item">
+		 <img src="body5.avif" width="50px" height="50px">
+            <span>The Ordinary Peeling Solution</span>
+            <span>3000ALL</span>
+			<div class="quantity">
+                <button onclick="ul_sasine('qty4')">-</button>
+                <input type="text" id="qty4" value="1" readonly>
+                <button onclick="rrit_sasine('qty4')">+</button>
+            </div>
+            <button>Remove</button>
+        </div>
+		<div class="cart-item">
+		 <img src="body4.avif" width="50px" height="50px">
+            <span>Bobbi Brown Primer Moisturizer</span>
+            <span>1500ALL</span>
+			<div class="quantity">
+                <button onclick="ul_sasine('qty5')">-</button>
+                <input type="text" id="qty5" value="1" readonly>
+                <button onclick="rrit_sasine('qty5')">+</button>
+            </div>
+            <button>Remove</button>
+        </div>
+		<div class="cart-item">
+		 <img src="skincare5.jpg" width="50px" height="50px">
+            <span>CeraVe,Foaming Facial Cleanser</span>
+            <span>1800ALL</span>
+			<div class="quantity">
+                <button onclick="ul_sasine('qty6')">-</button>
+                <input type="text" id="qty6" value="1" readonly>
+                <button onclick="rrit_sasine('qty6')">+</button>
+            </div>
+            <button>Remove</button>
+        </div>
+        <div class="total">Total: 17,700ALL
+		 <input type="button" onclick="pagesa()" value="CheckOut"/></div>
+    </div>
+</body>
+</html>

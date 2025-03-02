@@ -1,0 +1,174 @@
+<!<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Sign Up</title>
+	<link rel="icon" type="image/x-icon" href="Letter-EG-GE-Monogram-Logo.ico">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+			background-image: url(faqepar.jpg);
+            background-attachment: scroll;
+            background-size: cover;
+        }
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 350px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #333;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+        }
+        .form-container button.secondary {
+            background-color: #007BFF;
+        }
+        .form-container button.secondary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <!-- Login Form -->
+        <div id="login-form">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" required>
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" required>
+                <button type="button" onclick="login()">Log In</button>
+            </form>
+            <div class="error-message" id="login-error-message"></div>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div id="signup-form" style="display:none;">
+            <h2>Sign Up</h2>
+            <form id="signupForm">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" required>
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" required>
+                <label for="signup-email">Email</label>
+                <input type="email" id="signup-email" required>
+                <label for="signup-password">Password</label>
+                <input type="password" id="signup-password" required>
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" required>
+                <button type="button" onclick="signUp()">Sign Up</button>
+            </form>
+            <button type="button" class="secondary" onclick="showLogin()">Already have an account? Log in</button>
+            <div class="error-message" id="signup-error-message"></div>
+        </div>
+
+        <button type="button" class="secondary" id="signup-link" onclick="showSignup()" style="display:none;">Don't have an account? Sign up</button>
+    </div>
+
+    <script>
+        let users = [];
+
+        // Funksioni për të shfaqur formularin e login-it
+        function showLogin() {
+            document.getElementById('signup-form').style.display = 'none'; // Fshijmë formularin e regjistrimit
+            document.getElementById('login-form').style.display = 'block'; // Shfaqim formularin e login-it
+            document.getElementById('signup-link').style.display = 'block'; // Shfaqim butonin "Don't have an account? Sign up"
+            document.getElementById('login-error-message').textContent = ''; // Fshijmë mesazhet e gabimeve
+            document.getElementById('signup-error-message').textContent = ''; // Fshijmë mesazhet e gabimeve të regjistrimit
+        }
+
+        // Funksioni për të shfaqur formularin e regjistrimit
+        function showSignup() {
+            document.getElementById('login-form').style.display = 'none'; // Fshijmë formularin e login-it
+            document.getElementById('signup-form').style.display = 'block'; // Shfaqim formularin e regjistrimit
+            document.getElementById('signup-link').style.display = 'none'; // Fshijmë butonin "Don't have an account? Sign up"
+            document.getElementById('login-error-message').textContent = ''; // Fshijmë mesazhet e gabimeve të login-it
+            document.getElementById('signup-error-message').textContent = ''; // Fshijmë mesazhet e gabimeve të regjistrimit
+        }
+
+        function login() {
+            let email = document.getElementById('login-email').value;
+            let password = document.getElementById('login-password').value;
+            let errorMessage = document.getElementById('login-error-message');
+            errorMessage.textContent = ""; // Pastroni mesazhet e gabimeve
+
+            if (email === "") {
+                errorMessage.textContent = "Please enter your email!";
+                return;
+            }
+
+            let user = users.find(u => u.email === email);
+            if (!user) {
+                errorMessage.innerHTML = "Account does not exist. Please <button onclick='showSignup()'>sign up</button>.";
+            } else if (user.password !== password) {
+                errorMessage.textContent = "Incorrect password!";
+            } else {
+                alert("Login successful!");
+            }
+        }
+
+        function signUp() {
+            let firstName = document.getElementById('first-name').value;
+            let lastName = document.getElementById('last-name').value;
+            let email = document.getElementById('signup-email').value;
+            let password = document.getElementById('signup-password').value;
+            let confirmPassword = document.getElementById('confirm-password').value;
+            let errorMessage = document.getElementById('signup-error-message');
+            errorMessage.textContent = ""; // Pastroni mesazhet e gabimeve
+
+            if (users.some(u => u.email === email)) {
+                errorMessage.textContent = "This email is already registered!";
+            } else if (password !== confirmPassword) {
+                errorMessage.textContent = "Passwords do not match!";
+            } else if (firstName === "" || lastName === "" || email === "") {
+                errorMessage.textContent = "Please fill in all fields!";
+            } else {
+                users.push({ firstName, lastName, email, password });
+                alert("Registration successful!");
+                showLogin();
+            }
+        }
+    </script>
+</body>
+</html>
